@@ -1,20 +1,31 @@
+import cppLogo from "@/assets/cpp-logo.svg";
+import htmlLogo from "@/assets/html5-logo.svg";
+import cssLogo from "@/assets/css3-logo.svg";
+import jsLogo from "@/assets/javascript-logo.svg";
+import nodeLogo from "@/assets/nodejs-logo.svg";
+import expressLogo from "@/assets/express-logo.svg";
+import mongoLogo from "@/assets/mongodb-logo.svg";
+import tailwindLogo from "@/assets/tailwindcss-logo.svg";
+import gitLogo from "@/assets/git-logo.svg";
+import postmanLogo from "@/assets/postman-logo.svg";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Mail, Users, BookOpen, Award } from "lucide-react";
 
 const About = () => {
   const technologies = [
-    { name: "C/C++", logo: "/src/assets/cpp-logo.svg" },
-    { name: "HTML", logo: "/src/assets/html5-logo.svg" },
-    { name: "CSS", logo: "/src/assets/css3-logo.svg" },
-    { name: "JavaScript", logo: "/src/assets/javascript-logo.svg" },
-    { name: "Node.js", logo: "/src/assets/nodejs-logo.svg" },
-    { name: "Express.js", logo: "/src/assets/express-logo.svg" },
-    { name: "MongoDB", logo: "/src/assets/mongodb-logo.svg" },
-    { name: "Tailwind CSS", logo: "/src/assets/tailwindcss-logo.svg" },
-    { name: "Git/GitHub", logo: "/src/assets/git-logo.svg" },
-    { name: "Postman", logo: "/src/assets/postman-logo.svg" },
-  ];
+  { name: "C/C++", logo: cppLogo },
+  { name: "HTML", logo: htmlLogo },
+  { name: "CSS", logo: cssLogo },
+  { name: "JavaScript", logo: jsLogo },
+  { name: "Node.js", logo: nodeLogo },
+  { name: "Express.js", logo: expressLogo },
+  { name: "MongoDB", logo: mongoLogo },
+  { name: "Tailwind CSS", logo: tailwindLogo },
+  { name: "Git/GitHub", logo: gitLogo },
+  { name: "Postman", logo: postmanLogo },
+];
 
   const activities = [
     "Participated in coding contests like Techneeti and LeetCode",

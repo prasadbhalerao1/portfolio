@@ -34,7 +34,7 @@ const Projects = () => {
     {
       id: 3,
       title: "Rently - Car Renting Website",
-      description: "A full-stack car rental platform with user authentication, car browsing, and booking functionality.",
+      description: "A frontend for a car rental platform. First step before adding user authentication, car browsing, and booking functionality.",
       techStack: ["HTML", "CSS", "JavaScript"],
       githubLink: "https://github.com/prasadbhalerao1/rently",
       image: rentlyImg
@@ -42,7 +42,7 @@ const Projects = () => {
     {
       id: 4,
       title: "Hospital Website",
-      description: "A comprehensive hospital management website with appointment booking, doctor profiles, and patient portal.",
+      description: "A frontend comprehensive hospital management website with appointment booking, doctor profiles",
       techStack: ["HTML", "CSS", "JavaScript"],
       githubLink: "https://github.com/prasadbhalerao1/hospitalWeb",
       image: hospitalImg
@@ -58,7 +58,7 @@ const Projects = () => {
     {
       id: 6,
       title: "Todo List App",
-      description: "A feature-rich todo application with task management, categories, and local storage functionality.",
+      description: "A simple todo application made using javascript to store multiple tasks",
       techStack: ["HTML", "CSS", "JavaScript"],
       githubLink: "https://github.com/prasadbhalerao1/todolist",
       image: todoImg

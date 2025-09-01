@@ -28,7 +28,7 @@ const Hero = () => {
           </h1>
           
           <p className="text-xl sm:text-2xl md:text-3xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Student | Competitive Programmer | Web Developer
+            Student | Programmer | An aspiring Web Developer
           </p>
           
           <Button

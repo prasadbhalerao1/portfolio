@@ -5,7 +5,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, Github, Linkedin, Send, MapPin, Phone } from "lucide-react";
+import { Send, MapPin, Mail } from "lucide-react";
+import { motion } from "framer-motion";
+import { socialLinks, contactInfo } from "@/data/contact";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -80,40 +82,53 @@ const Contact = () => {
     }
   };
 
-  const socialLinks = [
-    {
-      name: "GitHub",
-      icon: Github,
-      url: "https://github.com/prasadbhalerao1",
-      label: "View my GitHub profile"
-    },
-    {
-      name: "LinkedIn",
-      icon: Linkedin,
-      url: "https://www.linkedin.com/in/prasadbhalerao",
-      label: "Connect with me on LinkedIn"
-    },
-    {
-      name: "Email",
-      icon: Mail,
-      url: "mailto:prasadbhalerao279@gmail.com",
-      label: "Send me an email"
-    },
-  ];
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.5
+      }
+    }
+  };
 
   return (
     <section id="contact" className="py-20 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Get In Touch</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Let's discuss opportunities, projects, or just have a friendly chat!
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <motion.div 
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
           {/* Contact Form */}
-          <Card className="animate-fade-in">
+          <motion.div variants={itemVariants}>
+            <Card>
             <CardHeader>
               <CardTitle>Send me a message</CardTitle>
             </CardHeader>
@@ -178,9 +193,10 @@ const Contact = () => {
               </form>
             </CardContent>
           </Card>
+          </motion.div>
 
           {/* Contact Information */}
-          <div className="space-y-8 animate-fade-in">
+          <motion.div className="space-y-8" variants={itemVariants}>
             <Card>
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold mb-6 text-foreground">Let's Connect</h3>
@@ -190,19 +206,18 @@ const Contact = () => {
                     <div>
                       <p className="font-medium text-foreground">Email</p>
                       <a
-                        href="mailto:prasadbhalerao279@gmail.com"
+                        href={`mailto:${contactInfo.email}`}
                         className="text-muted-foreground hover:text-primary transition-colors"
                       >
-                        prasadbhalerao279@gmail.com
+                        {contactInfo.email}
                       </a>
                     </div>
                   </div>
-                  
                   <div className="flex items-center gap-3">
                     <MapPin className="h-5 w-5 text-primary" />
                     <div>
                       <p className="font-medium text-foreground">Location</p>
-                      <p className="text-muted-foreground">Pune, Maharashtra, India</p>
+                      <p className="text-muted-foreground">{contactInfo.location}</p>
                     </div>
                   </div>
                 </div>
@@ -249,8 +264,8 @@ const Contact = () => {
                 feel free to reach out via email directly.
               </p>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

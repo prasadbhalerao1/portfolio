@@ -1,85 +1,65 @@
-import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { Github } from "lucide-react";
-
-// ✅ Import images from src/assets
-import weatherImg from "@/assets/weatherApp.png";
-import qrImg from "@/assets/ORcode.png";
-import rentlyImg from "@/assets/Rently.png";
-import hospitalImg from "@/assets/Hospital.png";
-import techhawksImg from "@/assets/TechHawks.png";
-import todoImg from "@/assets/todoList.png";
+import { motion } from "framer-motion";
+import { projects } from "@/data/projects";
+import ParticlesBackground from "./ParticlesBackground";
 
 const Projects = () => {
-  const projects = [
-    {
-      id: 1,
-      title: "Weather App",
-      description: "A responsive weather application that provides real-time weather information with a clean and intuitive interface.",
-      techStack: ["HTML", "CSS", "JavaScript"],
-      githubLink: "https://github.com/prasadbhalerao1/weatherApp",
-      image: weatherImg
-    },
-    {
-      id: 2,
-      title: "QR Code Generator",
-      description: "A simple yet powerful QR code generator that allows users to create QR codes for various types of content.",
-      techStack: ["HTML", "CSS", "JavaScript"],
-      githubLink: "https://github.com/prasadbhalerao1/QRCodeGenerator",
-      image: qrImg
-    },
-    {
-      id: 3,
-      title: "Rently - Car Renting Website",
-      description: "A frontend for a car rental platform. First step before adding user authentication, car browsing, and booking functionality.",
-      techStack: ["HTML", "CSS", "JavaScript"],
-      githubLink: "https://github.com/prasadbhalerao1/rently",
-      image: rentlyImg
-    },
-    {
-      id: 4,
-      title: "Hospital Website",
-      description: "A frontend comprehensive hospital management website with appointment booking, doctor profiles",
-      techStack: ["HTML", "CSS", "JavaScript"],
-      githubLink: "https://github.com/prasadbhalerao1/hospitalWeb",
-      image: hospitalImg
-    },
-    {
-      id: 5,
-      title: "TechHawks Club Website",
-      description: "Official website for TechHawks Club featuring events, member profiles, and club activities.",
-      techStack: ["HTML", "Tailwind CSS", "JavaScript"],
-      githubLink: "https://github.com/prasadbhalerao1/techawks",
-      image: techhawksImg
-    },
-    {
-      id: 6,
-      title: "Todo List App",
-      description: "A simple todo application made using javascript to store multiple tasks",
-      techStack: ["HTML", "CSS", "JavaScript"],
-      githubLink: "https://github.com/prasadbhalerao1/todolist",
-      image: todoImg
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
     }
-  ];
+  };
 
-  const [selectedProject, setSelectedProject] = useState(null);
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5
+      }
+    }
+  };
 
   return (
-    <section id="projects" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+    <section id="projects" className="relative py-20 bg-muted/30 overflow-hidden">
+      <div className="absolute inset-0" style={{ zIndex: 0 }}>
+        <ParticlesBackground />
+      </div>
+      <div className="absolute inset-0 bg-muted/20 pointer-events-none" style={{ zIndex: 1 }} />
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative" style={{ zIndex: 10 }}>
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">My Projects</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Here are some of the projects I've worked on, showcasing my skills in web development
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
           {projects.map((project) => (
-            <Card key={project.id} className="project-card group cursor-pointer">
+            <motion.div key={project.id} variants={cardVariants}>
+              <Card className="project-card group cursor-pointer h-full">
               <CardHeader className="p-0">
                 <div className="relative overflow-hidden rounded-t-lg bg-muted flex items-center justify-center h-48">
                   {/* ✅ Show project image */}
@@ -169,8 +149,9 @@ const Projects = () => {
                 </div>
               </CardContent>
             </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

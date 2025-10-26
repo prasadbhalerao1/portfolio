@@ -8,40 +8,40 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 210 40% 8%;
+    --background: 220 26% 10%;
     --foreground: 0 0% 98%;
 
-    --card: 210 40% 12%;
+    --card: 220 26% 18%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 210 40% 12%;
+    --popover: 220 26% 18%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 200 100% 50%;
-    --primary-foreground: 210 40% 8%;
-    --primary-glow: 200 100% 60%;
+    --primary: 199 89% 48%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 199 89% 58%;
 
-    --secondary: 210 40% 16%;
+    --secondary: 220 26% 18%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 210 40% 16%;
-    --muted-foreground: 215 16% 65%;
+    --muted: 220 26% 18%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 200 100% 70%;
-    --accent-foreground: 210 40% 8%;
+    --accent: 173 80% 40%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 210 40% 16%;
-    --input: 210 40% 16%;
-    --ring: 200 100% 50%;
+    --border: 220 26% 18%;
+    --input: 220 26% 18%;
+    --ring: 199 89% 48%;
 
     /* Custom design tokens */
-    --gradient-hero: linear-gradient(135deg, hsl(210 100% 25%), hsl(200 100% 50%));
-    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
-    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.3);
-    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.4);
+    --gradient-hero: linear-gradient(135deg, hsl(199 89% 38%), hsl(173 80% 40%));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(220 26% 14%));
+    --shadow-elegant: 0 10px 30px -10px hsl(199 89% 48% / 0.3);
+    --shadow-glow: 0 0 40px hsl(199 89% 58% / 0.4);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --radius: 0.5rem;
@@ -64,40 +64,40 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 210 40% 8%;
+    --background: 220 26% 10%;
     --foreground: 0 0% 98%;
 
-    --card: 210 40% 12%;
+    --card: 220 26% 18%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 210 40% 12%;
+    --popover: 220 26% 18%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 216 86% 63%;
-    --primary-foreground: 210 40% 8%;
-    --primary-glow: 216 86% 73%;
+    --primary: 199 89% 48%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 199 89% 58%;
 
-    --secondary: 210 40% 16%;
+    --secondary: 220 26% 18%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 210 40% 16%;
-    --muted-foreground: 215 16% 65%;
+    --muted: 220 26% 18%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 270 95% 85%;
-    --accent-foreground: 210 40% 8%;
+    --accent: 173 80% 40%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 210 40% 16%;
-    --input: 210 40% 16%;
-    --ring: 216 86% 63%;
+    --border: 220 26% 18%;
+    --input: 220 26% 18%;
+    --ring: 199 89% 48%;
 
     /* Custom design tokens for dark */
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
-    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.4);
-    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.5);
+    --gradient-hero: linear-gradient(135deg, hsl(199 89% 38%), hsl(173 80% 40%));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(220 26% 14%));
+    --shadow-elegant: 0 10px 30px -10px hsl(199 89% 48% / 0.4);
+    --shadow-glow: 0 0 40px hsl(199 89% 58% / 0.5);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -120,6 +120,7 @@ All colors MUST be HSL.
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -143,13 +144,13 @@ All colors MUST be HSL.
   }
 
   .project-card {
-    @apply transition-all duration-300 ease-out;
+    @apply transition-all duration-500 ease-out;
     transform: translateY(0);
   }
 
   .project-card:hover,
   .project-card:focus-within {
-    transform: translateY(-8px);
+    transform: translateY(-12px) scale(1.02);
     box-shadow: var(--shadow-elegant);
   }
 
@@ -162,5 +163,10 @@ All colors MUST be HSL.
   .tech-tile:focus {
     transform: scale(1.05);
     @apply outline-none ring-2 ring-primary;
+  }
+
+  .name-shine {
+    background-size: 200% auto;
+    animation: shine 3s linear infinite;
   }
 }

@@ -1,56 +1,58 @@
-import cppLogo from "@/assets/cpp-logo.svg";
-import htmlLogo from "@/assets/html5-logo.svg";
-import cssLogo from "@/assets/css3-logo.svg";
-import jsLogo from "@/assets/javascript-logo.svg";
-import nodeLogo from "@/assets/nodejs-logo.svg";
-import expressLogo from "@/assets/express-logo.svg";
-import mongoLogo from "@/assets/mongodb-logo.svg";
-import tailwindLogo from "@/assets/tailwindcss-logo.svg";
-import gitLogo from "@/assets/git-logo.svg";
-import postmanLogo from "@/assets/postman-logo.svg";
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Mail, Users, BookOpen, Award } from "lucide-react";
+import { motion } from "framer-motion";
+import { technologies, activities, semesterData, personalInfo, academicInfo } from "@/data/about";
 
 const About = () => {
-  const technologies = [
-  { name: "C/C++", logo: cppLogo },
-  { name: "HTML", logo: htmlLogo },
-  { name: "CSS", logo: cssLogo },
-  { name: "JavaScript", logo: jsLogo },
-  { name: "Node.js", logo: nodeLogo },
-  { name: "Express.js", logo: expressLogo },
-  { name: "MongoDB", logo: mongoLogo },
-  { name: "Tailwind CSS", logo: tailwindLogo },
-  { name: "Git/GitHub", logo: gitLogo },
-  { name: "Postman", logo: postmanLogo },
-];
 
-  const activities = [
-    "Participated in coding contests like Techneeti and LeetCode",
-    "Attended workshops/webinars (e.g., webinar on hackathons by takeuforward)",
-    "Member of Competitive Coding Club and TechHawks Club",
-  ];
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
 
-  const semesterData = [
-    { semester: "Semester 1", sgpa: 9.36 },
-    { semester: "Semester 2", sgpa: 9.27 },
-  ];
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5
+      }
+    }
+  };
 
   return (
     <section id="about" className="py-20 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">About Me</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Get to know more about my background, education, and skills
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        <motion.div 
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
           {/* Personal Information */}
-          <Card className="animate-fade-in">
+          <motion.div variants={itemVariants}>
+            <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Users className="h-5 w-5 text-primary" />
@@ -61,48 +63,48 @@ const About = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <p className="font-semibold text-foreground">Name:</p>
-                  <p className="text-muted-foreground">Prasad Bhalerao</p>
+                  <p className="text-muted-foreground">{personalInfo.name}</p>
                 </div>
                 <div>
                   <p className="font-semibold text-foreground">PRN no:</p>
-                  <p className="text-muted-foreground">RBT24CB026</p>
+                  <p className="text-muted-foreground">{personalInfo.prn}</p>
                 </div>
               </div>
               
               <div>
                 <p className="font-semibold text-foreground mb-2">Member of:</p>
                 <div className="flex flex-wrap gap-2">
-                  <Badge variant="secondary" className="flex items-center gap-1">
-                    <div className="w-4 h-4 bg-primary rounded-sm"></div>
-                    Competitive Coding Club
-                  </Badge>
-                  <Badge variant="secondary" className="flex items-center gap-1">
-                    <div className="w-4 h-4 bg-accent rounded-sm"></div>
-                    TechHawks Club
-                  </Badge>
+                  {personalInfo.clubs.map((club, index) => (
+                    <Badge key={club} variant="secondary" className="flex items-center gap-1">
+                      <div className={`w-4 h-4 ${index === 0 ? 'bg-primary' : 'bg-accent'} rounded-sm`}></div>
+                      {club}
+                    </Badge>
+                  ))}
                 </div>
               </div>
 
               <div>
                 <p className="font-semibold text-foreground">Email:</p>
                 <a 
-                  href="mailto:prasadbhalerao279@gmail.com"
+                  href={`mailto:${personalInfo.email}`}
                   className="text-primary hover:text-primary-glow transition-colors flex items-center gap-1"
                 >
                   <Mail className="h-4 w-4" />
-                  prasadbhalerao279@gmail.com
+                  {personalInfo.email}
                 </a>
               </div>
 
               <div>
                 <p className="font-semibold text-foreground">Languages:</p>
-                <p className="text-muted-foreground">English, Marathi, Hindi</p>
+                <p className="text-muted-foreground">{personalInfo.languages.join(", ")}</p>
               </div>
             </CardContent>
           </Card>
+          </motion.div>
 
           {/* Academic Information */}
-          <Card className="animate-fade-in">
+          <motion.div variants={itemVariants}>
+            <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <BookOpen className="h-5 w-5 text-primary" />
@@ -113,30 +115,37 @@ const About = () => {
               <div className="space-y-4">
                 <div className="border-l-4 border-primary pl-4">
                   <h4 className="font-semibold text-foreground">10th Standard</h4>
-                  <p className="text-sm text-muted-foreground">MSS High School, Chinchwad</p>
-                  <p className="text-sm text-muted-foreground">Year: 2022</p>
-                  <p className="font-semibold text-primary">Percentage: 94.80%</p>
+                  <p className="text-sm text-muted-foreground">{academicInfo.tenth.school}</p>
+                  <p className="text-sm text-muted-foreground">Year: {academicInfo.tenth.year}</p>
+                  <p className="font-semibold text-primary">Percentage: {academicInfo.tenth.percentage}</p>
                 </div>
                 
                 <div className="border-l-4 border-primary pl-4">
                   <h4 className="font-semibold text-foreground">12th Standard</h4>
-                  <p className="text-sm text-muted-foreground">Fattechand Jr. College, Chinchwad</p>
-                  <p className="text-sm text-muted-foreground">Year: 2024</p>
-                  <p className="font-semibold text-primary">Percentage: 84.50%</p>
+                  <p className="text-sm text-muted-foreground">{academicInfo.twelfth.college}</p>
+                  <p className="text-sm text-muted-foreground">Year: {academicInfo.twelfth.year}</p>
+                  <p className="font-semibold text-primary">Percentage: {academicInfo.twelfth.percentage}</p>
                 </div>
                 
                 <div className="border-l-4 border-primary pl-4">
                   <h4 className="font-semibold text-foreground">Currently</h4>
-                  <p className="text-sm text-muted-foreground">JSPM's RSCOE - Second Year</p>
-                  <p className="font-semibold text-primary">CGPA: 9.30</p>
+                  <p className="text-sm text-muted-foreground">{academicInfo.current.institution}</p>
+                  <p className="font-semibold text-primary">CGPA: {academicInfo.current.cgpa}</p>
                 </div>
               </div>
             </CardContent>
           </Card>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* SGPA Chart */}
-        <Card className="mb-16 animate-fade-in">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
+          <Card className="mb-16">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Award className="h-5 w-5 text-primary" />
@@ -165,9 +174,16 @@ const About = () => {
             </div>
           </CardContent>
         </Card>
+        </motion.div>
 
         {/* Co-curricular Activities */}
-        <Card className="mb-16 animate-fade-in">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
+          <Card className="mb-16">
           <CardHeader>
             <CardTitle>Co-curricular & Extra-curricular Activities</CardTitle>
           </CardHeader>
@@ -182,9 +198,16 @@ const About = () => {
             </ul>
           </CardContent>
         </Card>
+        </motion.div>
 
         {/* Technologies */}
-        <Card className="animate-fade-in">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
+          <Card>
           <CardHeader>
             <CardTitle>Technologies & Skills</CardTitle>
           </CardHeader>
@@ -210,6 +233,7 @@ const About = () => {
             </div>
           </CardContent>
         </Card>
+        </motion.div>
       </div>
     </section>
   );

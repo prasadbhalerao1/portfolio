@@ -58,7 +58,7 @@ const Hero = () => {
             }}
           >
             <img
-              src="/lovable-uploads/adb50b57-99cf-450d-85e3-7cba9f8ed118.png"
+              src="/photo/Photo.png"
               alt="Prasad Bhalerao photo"
               className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full mx-auto object-cover profile-glow"
               tabIndex={0}

@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
-import { Github } from "lucide-react";
+import { Github, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 import { projects } from "@/data/projects";
 import ParticlesBackground from "./ParticlesBackground";
@@ -117,7 +117,7 @@ const Projects = () => {
                           </div>
                         </div>
                         <div className="flex gap-2 pt-4">
-                          <Button asChild className="w-full">
+                          <Button asChild className="flex-1">
                             <a
                               href={project.githubLink}
                               target="_blank"
@@ -128,6 +128,19 @@ const Projects = () => {
                               View on GitHub
                             </a>
                           </Button>
+                          {project.liveDemo && project.liveDemo !== "#" && (
+                            <Button asChild className="flex-1">
+                              <a
+                                href={project.liveDemo}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={`View ${project.title} live demo`}
+                              >
+                                <ExternalLink className="h-4 w-4 mr-2" />
+                                See Live
+                              </a>
+                            </Button>
+                          )}
                         </div>
                       </div>
                     </DialogContent>
@@ -146,6 +159,22 @@ const Projects = () => {
                       <Github className="h-4 w-4" />
                     </a>
                   </Button>
+                  {project.liveDemo && project.liveDemo !== "#" && (
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      asChild
+                    >
+                      <a
+                        href={project.liveDemo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`View ${project.title} live demo`}
+                      >
+                        <ExternalLink className="h-4 w-4" />
+                      </a>
+                    </Button>
+                  )}
                 </div>
               </CardContent>
             </Card>

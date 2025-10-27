@@ -36,7 +36,7 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-2xl font-bold text-primary">Prasad Bhalerao</h3>
             <p className="text-muted-foreground">
-              Student | Competitive Programmer | Web Developer
+              Student | Programmer | Web Developer
             </p>
             <p className="text-sm text-muted-foreground">
               Building digital solutions with passion and precision.

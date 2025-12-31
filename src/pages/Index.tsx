@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -9,6 +10,14 @@ import Footer from "@/components/Footer";
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>Prasad Bhalerao - Student | Programmer | Web Developer</title>
+        <meta name="description" content="Personal portfolio of Prasad Bhalerao - Computer Science student at JSPM's RSCOE. Expert in web development and competitive programming." />
+        <link rel="canonical" href="https://prasadbhalerao.vercel.app/" />
+        <meta property="og:title" content="Prasad Bhalerao - Student | Programmer | Web Developer" />
+        <meta property="og:description" content="Personal portfolio of Prasad Bhalerao - Computer Science student at JSPM's RSCOE. Expert in web development and competitive programming." />
+        <meta property="og:url" content="https://prasadbhalerao.vercel.app/" />
+      </Helmet>
       <Header />
       <main>
         <Hero />

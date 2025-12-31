@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -33,6 +34,14 @@ const AchievementsPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Achievements - Prasad Bhalerao</title>
+        <meta name="description" content="Explore Prasad Bhalerao's professional certifications, awards, and achievements in competitive programming and web development." />
+        <link rel="canonical" href="https://prasadbhalerao.vercel.app/achievements" />
+        <meta property="og:title" content="Achievements - Prasad Bhalerao" />
+        <meta property="og:description" content="Explore Prasad Bhalerao's professional certifications, awards, and achievements in competitive programming and web development." />
+        <meta property="og:url" content="https://prasadbhalerao.vercel.app/achievements" />
+      </Helmet>
       <Header />
       
       <main className="pt-24 pb-16">

@@ -63,26 +63,32 @@ const Hero = () => {
               className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full mx-auto object-cover profile-glow"
               tabIndex={0}
               role="img"
+              fetchPriority="high"
+              loading="eager"
+              width={224}
+              height={224}
             />
           </motion.div>
           
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-foreground min-h-[1.2em]">
-            {displayText.split("Prasad Bhalerao")[0]}
-            {displayText.includes("Prasad Bhalerao") && (
-              <span className="name-shine bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-                Prasad Bhalerao
-              </span>
-            )}
-            {!isTypingComplete && (
-              <motion.span
-                animate={{ opacity: [1, 0] }}
-                transition={{ duration: 0.8, repeat: Infinity }}
-                className="text-primary"
-              >
-                |
-              </motion.span>
-            )}
-          </h1>
+          <div className="min-h-[80px] sm:min-h-[96px] md:min-h-[120px] lg:min-h-[144px] flex items-center justify-center">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-foreground">
+              {displayText.split("Prasad Bhalerao")[0]}
+              {displayText.includes("Prasad Bhalerao") && (
+                <span className="name-shine bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+                  Prasad Bhalerao
+                </span>
+              )}
+              {!isTypingComplete && (
+                <motion.span
+                  animate={{ opacity: [1, 0] }}
+                  transition={{ duration: 0.8, repeat: Infinity }}
+                  className="text-primary inline-block w-2 sm:w-3 md:w-4"
+                >
+                  |
+                </motion.span>
+              )}
+            </h1>
+          </div>
           
           <motion.p 
             className="text-xl sm:text-2xl md:text-3xl text-muted-foreground mb-8 max-w-3xl mx-auto"

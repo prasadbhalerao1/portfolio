@@ -17,4 +17,15 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          "vendor-start": ["react", "react-dom", "react-router-dom"],
+          "vendor-framer": ["framer-motion"],
+          "vendor-tsparticles": ["@tsparticles/react", "@tsparticles/slim", "@tsparticles/engine"],
+        },
+      },
+    },
+  },
 }));

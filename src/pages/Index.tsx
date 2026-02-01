@@ -14,7 +14,7 @@ const Index = () => {
         <title>Prasad Bhalerao - CSBS Student | JSPM | Web Developer</title>
         <meta
           name="description"
-          content="Personal portfolio of Prasad Bhalerao - Computer Science student at JSPM's RSCOE. He a software developer, AIML Enthusiast and a programmer"
+          content="Personal portfolio of Prasad Bhalerao - Computer Science student at JSPM's RSCOE. He is a software developer, AIML Enthusiast and a programmer."
         />
         <meta
           name="keywords"
@@ -27,7 +27,12 @@ const Index = () => {
         />
         <meta
           property="og:description"
-          content="Personal portfolio of Prasad Bhalerao - Computer Science student at JSPM's RSCOE. Expert in web development and competitive programming."
+          content="Personal portfolio of Prasad Bhalerao - Computer Science student at JSPM's RSCOE. He is a software developer, AIML Enthusiast and a programmer."
+        />
+        <meta property="og:site_name" content="Prasad Bhalerao Portfolio" />
+        <meta
+          property="og:image"
+          content="https://prasadbhalerao.vercel.app/photo/Photo.png"
         />
         <meta property="og:url" content="https://prasadbhalerao.vercel.app/" />
       </Helmet>

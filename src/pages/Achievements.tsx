@@ -16,9 +16,9 @@ const AchievementsPage = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   const cardVariants = {
@@ -27,23 +27,42 @@ const AchievementsPage = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5
-      }
-    }
+        duration: 0.5,
+      },
+    },
   };
 
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>Achievements - Prasad Bhalerao</title>
-        <meta name="description" content="Explore Prasad Bhalerao's professional certifications, awards, and achievements in competitive programming and web development." />
-        <link rel="canonical" href="https://prasadbhalerao.vercel.app/achievements" />
-        <meta property="og:title" content="Achievements - Prasad Bhalerao" />
-        <meta property="og:description" content="Explore Prasad Bhalerao's professional certifications, awards, and achievements in competitive programming and web development." />
-        <meta property="og:url" content="https://prasadbhalerao.vercel.app/achievements" />
+        <title>Achievements - Prasad Bhalerao | CSBS Student</title>
+        <meta
+          name="description"
+          content="Explore Prasad Bhalerao's professional certifications, awards, and achievements in competitive programming and web development."
+        />
+        <meta
+          name="keywords"
+          content="Prasad Bhalerao, Achievements, Certifications, Awards, CSBS, JSPM, Competitive Programming, Web Development"
+        />
+        <link
+          rel="canonical"
+          href="https://prasadbhalerao.vercel.app/achievements"
+        />
+        <meta
+          property="og:title"
+          content="Achievements - Prasad Bhalerao | CSBS Student"
+        />
+        <meta
+          property="og:description"
+          content="Explore Prasad Bhalerao's professional certifications, awards, and achievements in competitive programming and web development."
+        />
+        <meta
+          property="og:url"
+          content="https://prasadbhalerao.vercel.app/achievements"
+        />
       </Helmet>
       <Header />
-      
+
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* Back Button */}
@@ -99,7 +118,8 @@ const AchievementsPage = () => {
                         className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
-                          target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23334155' width='400' height='300'/%3E%3Ctext fill='%2394a3b8' font-family='sans-serif' font-size='18' x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle'%3ECertificate%3C/text%3E%3C/svg%3E";
+                          target.src =
+                            "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23334155' width='400' height='300'/%3E%3Ctext fill='%2394a3b8' font-family='sans-serif' font-size='18' x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle'%3ECertificate%3C/text%3E%3C/svg%3E";
                         }}
                       />
                     </div>
@@ -108,7 +128,7 @@ const AchievementsPage = () => {
                     <CardTitle className="text-xl mb-3 group-hover:text-primary transition-colors">
                       {achievement.title}
                     </CardTitle>
-                    
+
                     <div className="space-y-3 mb-4">
                       {achievement.date && (
                         <div className="flex items-center text-sm text-muted-foreground">
@@ -116,18 +136,20 @@ const AchievementsPage = () => {
                           {achievement.date}
                         </div>
                       )}
-                      
+
                       {achievement.issuer && (
                         <div className="flex items-center text-sm text-muted-foreground">
                           <Building2 className="h-4 w-4 mr-2" />
                           {achievement.issuer}
                         </div>
                       )}
-                      
+
                       {achievement.credentialId && (
                         <div className="flex items-center text-sm text-muted-foreground">
                           <FileText className="h-4 w-4 mr-2" />
-                          <span className="truncate">ID: {achievement.credentialId}</span>
+                          <span className="truncate">
+                            ID: {achievement.credentialId}
+                          </span>
                         </div>
                       )}
                     </div>

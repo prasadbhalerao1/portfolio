@@ -49,7 +49,7 @@ const ScrollManager = () => {
 
 /** Everything inside the router; shared by the browser app and the build-time prerender. */
 export const AppShell = () => (
-  <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+  <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
     <MotionConfig reducedMotion="user">
       <ScrollManager />
       <div className="grain min-h-screen">

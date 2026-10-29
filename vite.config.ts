@@ -4,7 +4,7 @@ import path from "path";
 
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
+export default defineConfig(({ isSsrBuild }) => ({
   server: {
     host: "localhost",
     port: 8080,
@@ -13,15 +13,20 @@ export default defineConfig(({ mode }) => ({
     react(),
   ].filter(Boolean),
   build: {
-    rollupOptions: {
+    // Chunk splitting only applies to the browser build, not the prerender (SSR) build.
+    rollupOptions: isSsrBuild ? {} : {
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom', 'react-router-dom'],
-          ui: ['@radix-ui/react-dialog', '@radix-ui/react-slot', 'class-variance-authority', 'clsx', 'tailwind-merge'],
+          ui: ['@radix-ui/react-dialog', 'clsx', 'tailwind-merge'],
           animations: ['framer-motion'],
         },
       },
     },
+  },
+  // CommonJS packages that Node can't import by name in the prerender bundle; let Vite bundle them.
+  ssr: {
+    noExternal: ["react-helmet-async"],
   },
   resolve: {
     alias: {

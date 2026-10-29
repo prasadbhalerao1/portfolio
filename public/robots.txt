@@ -1,3 +1,6 @@
+# Search engines and AI crawlers are welcome.
 User-agent: *
 Allow: /
+
+# Plain-text summary for AI tools: https://prasadbhalerao.vercel.app/llms.txt
 Sitemap: https://prasadbhalerao.vercel.app/sitemap.xml

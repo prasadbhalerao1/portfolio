@@ -2,125 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
+/* Design tokens. Colors are HSL channels so Tailwind can apply opacity. */
 @layer base {
   :root {
-    --background: 220 26% 10%;
-    --foreground: 0 0% 98%;
-
-    --card: 220 26% 18%;
-    --card-foreground: 0 0% 98%;
-
-    --popover: 220 26% 18%;
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 199 89% 48%;
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 199 89% 58%;
-
-    --secondary: 220 26% 18%;
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 220 26% 18%;
-    --muted-foreground: 215 20% 65%;
-
-    --accent: 173 80% 40%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 220 26% 18%;
-    --input: 220 26% 18%;
-    --ring: 199 89% 48%;
-
-    /* Custom design tokens */
-    --gradient-hero: linear-gradient(135deg, hsl(199 89% 38%), hsl(173 80% 40%));
-    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(220 26% 14%));
-    --shadow-elegant: 0 10px 30px -10px hsl(199 89% 48% / 0.3);
-    --shadow-glow: 0 0 40px hsl(199 89% 58% / 0.4);
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --paper: 40 38% 93%;
+    --paper-2: 38 30% 88%;
+    --ink: 30 12% 10%;
+    --ink-2: 32 8% 36%;
+    --line: 36 20% 79%;
+    --accent: 15 70% 42%;
+    --accent-ink: 40 40% 97%;
+    --grain-opacity: 0.05;
+    color-scheme: light;
   }
 
   .dark {
-    --background: 220 26% 10%;
-    --foreground: 0 0% 98%;
-
-    --card: 220 26% 18%;
-    --card-foreground: 0 0% 98%;
-
-    --popover: 220 26% 18%;
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 199 89% 48%;
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 199 89% 58%;
-
-    --secondary: 220 26% 18%;
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 220 26% 18%;
-    --muted-foreground: 215 20% 65%;
-
-    --accent: 173 80% 40%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 220 26% 18%;
-    --input: 220 26% 18%;
-    --ring: 199 89% 48%;
-
-    /* Custom design tokens for dark */
-    --gradient-hero: linear-gradient(135deg, hsl(199 89% 38%), hsl(173 80% 40%));
-    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(220 26% 14%));
-    --shadow-elegant: 0 10px 30px -10px hsl(199 89% 48% / 0.4);
-    --shadow-glow: 0 0 40px hsl(199 89% 58% / 0.5);
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --paper: 30 9% 7.5%;
+    --paper-2: 30 7% 12%;
+    --ink: 40 28% 90%;
+    --ink-2: 36 9% 63%;
+    --line: 30 6% 20%;
+    --accent: 18 76% 60%;
+    --accent-ink: 30 12% 8%;
+    --grain-opacity: 0.035;
+    color-scheme: dark;
   }
-}
 
-@layer base {
   * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply border-line;
   }
 
   html {
+    -webkit-tap-highlight-color: transparent;
     scroll-behavior: smooth;
-    scroll-padding-top: 80px;
+    scroll-padding-top: 88px;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+    font-feature-settings: "ss01", "cv11";
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: hsl(var(--accent));
+    color: hsl(var(--accent-ink));
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--accent));
+    outline-offset: 3px;
+    border-radius: 2px;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -131,42 +64,57 @@ All colors MUST be HSL.
 }
 
 @layer components {
-  .profile-glow {
-    @apply transition-all duration-300 ease-out;
-    box-shadow: 0 0 0 3px transparent;
+  /* Paper grain over the whole page; purely decorative. */
+  .grain::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 60;
+    opacity: var(--grain-opacity);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
-  .profile-glow:hover,
-  .profile-glow:focus {
-    @apply outline-none;
-    box-shadow: var(--shadow-glow);
-    transform: scale(1.05);
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .link-underline:hover,
+  .link-underline:focus-visible {
+    background-size: 100% 1px;
   }
 
-  .project-card {
-    @apply transition-all duration-500 ease-out;
-    transform: translateY(0);
+  .eyebrow {
+    @apply font-mono text-[11px] uppercase tracking-[0.14em] text-ink-2;
   }
 
-  .project-card:hover,
-  .project-card:focus-within {
-    transform: translateY(-12px) scale(1.02);
-    box-shadow: var(--shadow-elegant);
+  .scrollbar-none {
+    scrollbar-width: none;
   }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
 
-  .tech-tile {
-    @apply transition-all duration-200 ease-out;
-    transform: scale(1);
+/* Opacity only, so it can't fight Tailwind's translate-based centering. */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
+}
 
-  .tech-tile:hover,
-  .tech-tile:focus {
-    transform: scale(1.05);
-    @apply outline-none ring-2 ring-primary;
+@keyframes sheetUp {
+  from {
+    transform: translateY(100%);
   }
+}
 
-  .name-shine {
-    background-size: 200% auto;
-    animation: shine 3s linear infinite;
-  }
+/* Theme switch: circular reveal from the toggle (View Transitions API). */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
 }

@@ -15,8 +15,7 @@ const DESCRIPTION =
   "Prasad Bhalerao is an AI engineer and third-year B.Tech CSBS student at JSPM's RSCOE, Pune. Builds agentic systems with LangGraph, LangChain and Langfuse, and the full-stack apps around them. Hackers Occupied Pune 2026 winner.";
 
 // Projects as structured data so search engines and AI tools can read them without running JS.
-const jsonLd = {
-  "@context": "https://schema.org",
+const projectList = {
   "@type": "ItemList",
   name: "Projects by Prasad Bhalerao",
   itemListElement: projects.map((p, i) => ({
@@ -33,6 +32,24 @@ const jsonLd = {
       author: { "@id": `${SITE_URL}/#person` },
     },
   })),
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfilePage",
+      "@id": `${SITE_URL}/#profile`,
+      url: `${SITE_URL}/`,
+      name: TITLE,
+      description: DESCRIPTION,
+      inLanguage: "en",
+      dateModified: new Date().toISOString().split("T")[0],
+      mainEntity: { "@id": `${SITE_URL}/#person` },
+      isPartOf: { "@id": `${SITE_URL}/#website` },
+    },
+    projectList,
+  ],
 };
 
 const Index = () => (

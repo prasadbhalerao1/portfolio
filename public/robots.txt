@@ -1,6 +1,29 @@
-# Search engines and AI crawlers are welcome.
+# Search engines and AI crawlers are all welcome. Nothing on this site is private.
 User-agent: *
 Allow: /
 
-# Plain-text summary for AI tools: https://prasadbhalerao.vercel.app/llms.txt
+# Named explicitly so AI search and assistant crawlers are never in doubt.
+User-agent: Googlebot
+User-agent: Google-Extended
+User-agent: Bingbot
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Applebot
+User-agent: Applebot-Extended
+User-agent: DuckDuckBot
+User-agent: YandexBot
+User-agent: CCBot
+User-agent: meta-externalagent
+Allow: /
+
+# Plain-text summaries for AI tools
+# https://prasadbhalerao.vercel.app/llms.txt
+# https://prasadbhalerao.vercel.app/llms-full.txt
+
 Sitemap: https://prasadbhalerao.vercel.app/sitemap.xml

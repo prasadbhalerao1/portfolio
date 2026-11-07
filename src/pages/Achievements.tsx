@@ -19,6 +19,13 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+        { "@type": "ListItem", position: 2, name: "Achievements", item: `${SITE_URL}/achievements` },
+      ],
+    },
+    {
       "@type": "CollectionPage",
       "@id": `${SITE_URL}/achievements#page`,
       url: `${SITE_URL}/achievements`,

@@ -107,6 +107,32 @@ ${groups
 - [Achievements](${SITE_URL}/achievements): every hackathon, event and certificate
 `;
 fs.writeFileSync(path.join(dist, "llms.txt"), llms);
-console.log("llms.txt written");
+// Some AI tools look for llms-full.txt; this site is small, so it carries the same full content.
+fs.writeFileSync(path.join(dist, "llms-full.txt"), llms);
+console.log("llms.txt + llms-full.txt written");
+
+// IndexNow: tell Bing, Yandex, Seznam and Naver the pages changed. Production deploys only;
+// never fails the build.
+const indexNowKey = fs
+  .readdirSync(path.join(root, "public"))
+  .find((f) => /^[0-9a-f]{32}\.txt$/.test(f))
+  ?.slice(0, -4);
+if (process.env.VERCEL_ENV === "production" && indexNowKey) {
+  try {
+    const res = await fetch("https://api.indexnow.org/indexnow", {
+      method: "POST",
+      headers: { "Content-Type": "application/json; charset=utf-8" },
+      body: JSON.stringify({
+        host: new URL(SITE_URL).host,
+        key: indexNowKey,
+        keyLocation: `${SITE_URL}/${indexNowKey}.txt`,
+        urlList: [`${SITE_URL}/`, `${SITE_URL}/achievements`, `${SITE_URL}/llms.txt`],
+      }),
+    });
+    console.log(`IndexNow ping: ${res.status}`);
+  } catch (err) {
+    console.warn(`IndexNow ping skipped: ${err.message}`);
+  }
+}
 
 fs.rmSync(ssrDir, { recursive: true, force: true });

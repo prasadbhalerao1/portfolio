@@ -26,6 +26,7 @@ export const projects: Project[] = [
     ],
     stack: ["LangGraph", "Langfuse", "Qdrant", "FastAPI", "Next.js", "Redis"],
     repo: gh("Promptwars-jspm"),
+    context: "PromptWars × Kick To Tech, Pune · Oct 2026",
     year: "2026",
   },
   {

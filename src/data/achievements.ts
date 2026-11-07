@@ -43,7 +43,7 @@ export const entries: Entry[] = [
     type: "organized",
     result: "Organiser",
     summary: "Computer-networks treasure hunt across campus. I led the event and built the platform every team played on.",
-    photos: ["/events/traceroute-1.jpg", "/events/traceroute-2.jpg"],
+    photos: ["/events/traceroute-1.jpg", "/events/traceroute-2.jpg", "/events/traceroute-3.jpg"],
     points: [
       "QR check-ins, networking MCQs and riddles across 5 locations, then a rapid-fire final",
       "Unique route per team from a pool of 8; questions drawn from a 60-question bank",
@@ -93,6 +93,18 @@ export const entries: Entry[] = [
 
   // Hackathons
   {
+    slug: "promptwars-kick-to-tech-2026",
+    title: "PromptWars × Kick To Tech",
+    org: "Google for Developers · Hack2skill · at JSPM University, Pune",
+    date: "2026-10-28",
+    when: "28 Oct 2026",
+    type: "hackathon",
+    summary: "One-day vibe-coding hackathon. Built and deployed TRACE, a multi-agent hiring platform, with Google Antigravity.",
+    cert: "promptwars-kick-to-tech-2026",
+    original: "/certs/originals/promptwars-kick-to-tech-2026.pdf",
+    links: [{ label: "Source", url: gh("Promptwars-jspm") }],
+  },
+  {
     slug: "innovate-4-impact-2026",
     title: "INNOVATE 4 IMPACT: AI4SDG Global Hackathon",
     org: "Bharati Vidyapeeth College of Engineering, Pune · IEEE WIE",
@@ -135,7 +147,7 @@ export const entries: Entry[] = [
     type: "hackathon",
     result: "Winner",
     summary: "Top 25 of 250+ teams. 24-hour build of a LangGraph supply-chain disruption agent.",
-    photos: ["/events/hackers-occupied-pune-2026-1.jpg", "/events/hackers-occupied-pune-2026-2.jpg", "/events/hackers-occupied-pune-2026-3.jpg", "/events/hackers-occupied-pune-2026-4.jpg", "/events/hackers-occupied-pune-2026-5.jpg"],
+    photos: ["/events/hackers-occupied-pune-2026-1.jpg", "/events/hackers-occupied-pune-2026-2.jpg", "/events/hackers-occupied-pune-2026-3.jpg", "/events/hackers-occupied-pune-2026-4.jpg", "/events/hackers-occupied-pune-2026-5.jpg", "/events/hackers-occupied-pune-2026-6.jpg", "/events/hackers-occupied-pune-2026-7.jpg"],
     points: [
       "Won the Content Creation track and the Open Innovation prize",
       "5th in the online round, Open Innovation problem statement",
@@ -157,7 +169,7 @@ export const entries: Entry[] = [
     type: "hackathon",
     result: "Finalist",
     summary: "8-hour build of an AI hiring platform: verified candidate profiles and explainable ranking.",
-    photos: ["/events/logic-loop-2026-1.jpg", "/events/logic-loop-2026-2.jpg", "/events/logic-loop-2026-3.jpg", "/events/logic-loop-2026-4.jpg"],
+    photos: ["/events/logic-loop-2026-1.jpg", "/events/logic-loop-2026-2.jpg", "/events/logic-loop-2026-3.jpg", "/events/logic-loop-2026-4.jpg", "/events/logic-loop-2026-5.jpg"],
     points: [
       "Talent score from commit history and code quality, not self-reported skills",
       "Natural-language candidate search and AI-run technical interviews",
@@ -174,7 +186,7 @@ export const entries: Entry[] = [
     when: "25–26 Jul 2026",
     type: "hackathon",
     summary: "Built Overwatch: an SRE agent that correlates logs, metrics and traces and explains what broke.",
-    photos: ["/events/docker-cloud-native-2026-1.jpg", "/events/docker-cloud-native-2026-2.jpg", "/events/docker-cloud-native-2026-3.jpg", "/events/docker-cloud-native-2026-4.jpg"],
+    photos: ["/events/docker-cloud-native-2026-1.jpg", "/events/docker-cloud-native-2026-2.jpg", "/events/docker-cloud-native-2026-3.jpg", "/events/docker-cloud-native-2026-4.jpg", "/events/docker-cloud-native-2026-5.jpg"],
     points: [
       "Suggests restart or rollback, then waits for human approval before acting",
       "Prometheus, Jaeger and OpenTelemetry on Docker, learned on the day",

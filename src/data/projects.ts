@@ -25,7 +25,7 @@ export const projects: Project[] = [
       "Adaptive AI interviewer grounded in the job description; agent runs traced in Langfuse",
     ],
     stack: ["LangGraph", "Langfuse", "Qdrant", "FastAPI", "Next.js", "Redis"],
-    repo: gh("Promptwars-jspm"),
+    repo: gh("TRACE"),
     context: "PromptWars × Kick To Tech, Pune · Oct 2026",
     year: "2026",
   },

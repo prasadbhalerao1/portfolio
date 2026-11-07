@@ -102,7 +102,7 @@ export const entries: Entry[] = [
     summary: "One-day vibe-coding hackathon. Built and deployed TRACE, a multi-agent hiring platform, with Google Antigravity.",
     cert: "promptwars-kick-to-tech-2026",
     original: "/certs/originals/promptwars-kick-to-tech-2026.pdf",
-    links: [{ label: "Source", url: gh("Promptwars-jspm") }],
+    links: [{ label: "TRACE", url: gh("TRACE") }],
   },
   {
     slug: "innovate-4-impact-2026",

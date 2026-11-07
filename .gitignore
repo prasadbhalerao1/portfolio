@@ -25,3 +25,6 @@ dist-ssr
 
 # Playwright MCP scratch output
 .playwright-mcp/
+
+# Raw photo drop folder (may contain location data)
+temp/

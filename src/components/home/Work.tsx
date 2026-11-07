@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowUpRight, Plus } from "lucide-react";
 import { moreProjects, projects } from "@/data/projects";
 import SectionHead from "../SectionHead";
 import Reveal, { EASE } from "../Reveal";
 import { cn } from "@/lib/utils";
+import Collapse from "../Collapse";
 
 const ExtLink = ({ href, children }: { href: string; children: string }) => (
   <a
@@ -66,16 +67,7 @@ const Work = () => {
                     </button>
                   </h3>
 
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        id={`work-${p.slug}`}
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.45, ease: EASE }}
-                        className="overflow-hidden"
-                      >
+                  <Collapse open={isOpen} id={`work-${p.slug}`}>
                         <div className="grid gap-6 pb-8 pl-[2.25rem] pr-2 md:grid-cols-[1fr_16rem_auto] md:gap-6 md:pl-[4.5rem]">
                           <ul className="space-y-2.5 text-[15px] leading-relaxed md:text-base">
                             {p.points.map((pt) => (
@@ -95,9 +87,7 @@ const Work = () => {
                             {p.live && <ExtLink href={p.live}>Live</ExtLink>}
                           </div>
                         </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  </Collapse>
               </motion.li>
             );
           })}

@@ -1,9 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import { Plus } from "lucide-react";
 import { isHighlight, sortedEntries, TYPE_LABELS, type EntryType } from "@/data/achievements";
 import EntryBody from "./EntryBody";
-import { EASE } from "../Reveal";
+import Collapse from "../Collapse";
 import { cn } from "@/lib/utils";
 
 const FILTERS: ("all" | EntryType)[] = ["all", "hackathon", "organized", "learning"];
@@ -98,23 +97,12 @@ const LogView = () => {
                       </span>
                     </button>
                   </h3>
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        id={`d-${e.slug}`}
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.4, ease: EASE }}
-                        className="overflow-hidden"
-                      >
+                  <Collapse open={isOpen} id={`d-${e.slug}`}>
                         <div className="pb-7 md:pl-[8.5rem]">
                           {e.result && <p className="mb-3 font-mono text-[11px] uppercase tracking-wider text-accent md:hidden">{e.result}</p>}
                           <EntryBody entry={e} />
                         </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  </Collapse>
                 </li>
               );
             })}

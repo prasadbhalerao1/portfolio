@@ -36,7 +36,7 @@ const LogTeaser = () => {
                   <span className="ml-2 hidden text-sm text-ink-2 md:inline">{e.org}</span>
                 </span>
                 {e.result && (
-                  <span className={cn("text-right font-mono text-[11px] uppercase tracking-wider", isHighlight(e.result) ? "text-accent" : "text-ink-2")}>
+                  <span className={cn("text-right font-mono text-[0.6875rem] uppercase tracking-wider", isHighlight(e.result) ? "text-accent" : "text-ink-2")}>
                     {e.result}
                   </span>
                 )}

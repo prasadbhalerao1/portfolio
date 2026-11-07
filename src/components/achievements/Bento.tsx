@@ -48,7 +48,7 @@ const Badges = ({ e, dark }: { e: Entry; dark: boolean }) => {
   const photos = e.photos?.length ?? 0;
   if (!photos && !e.cert) return null;
   const chip = cn(
-    "inline-flex items-center gap-1 rounded-full px-2 py-0.5 font-mono text-[10px]",
+    "inline-flex items-center gap-1 rounded-full px-2 py-0.5 font-mono text-[0.625rem]",
     dark ? "bg-black/45 text-white backdrop-blur-sm" : "bg-paper text-ink-2",
   );
   return (
@@ -82,15 +82,15 @@ const EntryTile = ({ e, size, onOpen }: { e: Entry; size: Size; onOpen: () => vo
         </span>
         <span className="absolute inset-x-0 bottom-0 p-4 text-white md:p-5">
           {e.result && (
-            <span className={cn("mb-1.5 block font-mono text-[10px] uppercase tracking-wider", win ? "text-[hsl(18_80%_68%)]" : "text-white/70")}>
+            <span className={cn("mb-1.5 block font-mono text-[0.625rem] uppercase tracking-wider", win ? "text-[hsl(18_80%_68%)]" : "text-white/70")}>
               {e.result}
             </span>
           )}
           <span className={cn("block font-serif leading-[1.05]", size === "hero" ? "text-3xl md:text-[2.6rem]" : "text-2xl")}>{e.title}</span>
-          <span className="mt-1.5 block font-mono text-[11px] text-white/75">
+          <span className="mt-1.5 block font-mono text-[0.6875rem] text-white/75">
             {e.when} · {e.org}
           </span>
-          {size === "hero" && <span className="mt-3 hidden max-w-[46ch] text-[15px] leading-relaxed text-white/90 md:block">{e.summary}</span>}
+          {size === "hero" && <span className="mt-3 hidden max-w-[46ch] text-[0.9375rem] leading-relaxed text-white/90 md:block">{e.summary}</span>}
         </span>
       </button>
     );
@@ -108,9 +108,9 @@ const EntryTile = ({ e, size, onOpen }: { e: Entry; size: Size; onOpen: () => vo
         </span>
       )}
       <span className={cn("block", size === "wide" ? "self-end pb-1" : "pt-3")}>
-        {e.result && <span className={cn("mb-1 block font-mono text-[10px] uppercase tracking-wider", win ? "text-accent" : "text-ink-2")}>{e.result}</span>}
+        {e.result && <span className={cn("mb-1 block font-mono text-[0.625rem] uppercase tracking-wider", win ? "text-accent" : "text-ink-2")}>{e.result}</span>}
         <span className="line-clamp-2 block font-medium leading-snug transition-colors group-hover:text-accent">{e.title}</span>
-        <span className="mt-1 block font-mono text-[11px] text-ink-2">{e.when}</span>
+        <span className="mt-1 block font-mono text-[0.6875rem] text-ink-2">{e.when}</span>
       </span>
     </button>
   );

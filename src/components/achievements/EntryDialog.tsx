@@ -25,7 +25,7 @@ const EntryDialog = ({ entry, onClose }: { entry: Entry | null; onClose: () => v
               </Dialog.Close>
             </div>
             {entry.result && (
-              <p className={cn("mt-4 font-mono text-[11px] uppercase tracking-wider", isHighlight(entry.result) ? "text-accent" : "text-ink-2")}>{entry.result}</p>
+              <p className={cn("mt-4 font-mono text-[0.6875rem] uppercase tracking-wider", isHighlight(entry.result) ? "text-accent" : "text-ink-2")}>{entry.result}</p>
             )}
             <div className="mt-5">
               <EntryBody entry={entry} />

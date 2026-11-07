@@ -80,7 +80,7 @@ const LogView = () => {
                       </span>
                       <span
                         className={cn(
-                          "hidden max-w-[16rem] text-right font-mono text-[11px] uppercase leading-5 tracking-wider md:block",
+                          "hidden max-w-[16rem] text-right font-mono text-[0.6875rem] uppercase leading-5 tracking-wider md:block",
                           isHighlight(e.result) ? "text-accent" : "text-ink-2",
                         )}
                       >
@@ -99,7 +99,7 @@ const LogView = () => {
                   </h3>
                   <Collapse open={isOpen} id={`d-${e.slug}`}>
                         <div className="pb-7 md:pl-[8.5rem]">
-                          {e.result && <p className="mb-3 font-mono text-[11px] uppercase tracking-wider text-accent md:hidden">{e.result}</p>}
+                          {e.result && <p className="mb-3 font-mono text-[0.6875rem] uppercase tracking-wider text-accent md:hidden">{e.result}</p>}
                           <EntryBody entry={e} />
                         </div>
                   </Collapse>

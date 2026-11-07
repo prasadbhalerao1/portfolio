@@ -39,6 +39,14 @@
     -webkit-text-size-adjust: 100%;
   }
 
+  /* Big monitors: scale the whole rem-based layout (type, spacing, column width) up
+     proportionally instead of leaving a narrow column. 16px at 1600px wide, ~21px at 2560px. */
+  @media (min-width: 1600px) {
+    html {
+      font-size: clamp(16px, calc(16px + (100vw - 1600px) * 0.0052), 22px);
+    }
+  }
+
   body {
     @apply bg-paper font-sans text-ink antialiased;
     font-feature-settings: "ss01", "cv11";
@@ -88,7 +96,7 @@
   }
 
   .eyebrow {
-    @apply font-mono text-[11px] uppercase tracking-[0.14em] text-ink-2;
+    @apply font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ink-2;
   }
 
   .scrollbar-none {

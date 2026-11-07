@@ -52,7 +52,7 @@ const Work = () => {
                         <span className="block font-serif text-3xl leading-[1.05] transition-colors duration-300 group-hover:text-accent md:text-5xl">
                           {p.title}
                         </span>
-                        <span className="mt-2 block max-w-[62ch] text-[15px] leading-relaxed text-ink-2 md:text-base">{p.tagline}</span>
+                        <span className="mt-2 block max-w-[62ch] text-[0.9375rem] leading-relaxed text-ink-2 md:text-base">{p.tagline}</span>
                       </span>
                       <span className="hidden pt-3 font-mono text-xs leading-6 text-ink-2 md:block">{p.stack.join(" · ")}</span>
                       <span
@@ -69,7 +69,7 @@ const Work = () => {
 
                   <Collapse open={isOpen} id={`work-${p.slug}`}>
                         <div className="grid gap-6 pb-8 pl-[2.25rem] pr-2 md:grid-cols-[1fr_16rem_auto] md:gap-6 md:pl-[4.5rem]">
-                          <ul className="space-y-2.5 text-[15px] leading-relaxed md:text-base">
+                          <ul className="space-y-2.5 text-[0.9375rem] leading-relaxed md:text-base">
                             {p.points.map((pt) => (
                               <li key={pt} className="flex gap-3">
                                 <span className="mt-[0.7em] h-px w-3 shrink-0 bg-accent" aria-hidden />
